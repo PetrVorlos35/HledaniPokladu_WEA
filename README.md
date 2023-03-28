@@ -1,0 +1,1 @@
+# HledaniPokladu_WEA
