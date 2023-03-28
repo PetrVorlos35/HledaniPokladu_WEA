@@ -15,6 +15,7 @@
         <input type="password" name="password" id="password">
         <label for="chechPassword">Check password:</label>
         <input type="password" name="chechPassword" id="chechPassword">
+        <input type="submit" value="Register!">
     </form>
 </body>
 </html>
