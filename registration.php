@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="register.php" method="post">
+    <form action="index.php" method="post">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email">
         <label for="password">Heslo:</label>
