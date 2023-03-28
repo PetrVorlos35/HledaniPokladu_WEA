@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div>
+        <button></button>
+        <button></button>
+        <button></button><br>
+        <button></button>
+        <button></button>
+        <button></button><br>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
 </body>
 </html>
