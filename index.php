@@ -22,5 +22,7 @@
     <form action="login.php">
         <button id="login">Login</button>
     </form>
+
+    <script src="game.js"></script>
 </body>
 </html>
