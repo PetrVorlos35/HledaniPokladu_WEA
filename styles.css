@@ -71,3 +71,7 @@ input[type="submit"]:hover{
 #header{
     text-align: center;
 }
+
+input[type="number"]{
+    display: block;
+}
