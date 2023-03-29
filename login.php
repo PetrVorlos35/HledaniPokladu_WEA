@@ -17,7 +17,7 @@
             <input type="submit" value="Login!">
         </form>
     </div>
-<br><br><br><br><br><br>
+    
     <div id="register">
         <form action="index.php" method="post">
             <label for="email">Email:</label>
