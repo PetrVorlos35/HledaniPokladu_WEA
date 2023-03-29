@@ -16,7 +16,7 @@
     <input type="number" name="sirka" id="sirka">
     <label for="vyska">Výška:</label>
     <input type="number" name="vyska" id="vyska">
-    <button onclick="vytvorPole(4,4)">Create pool</button>
+    <button id="createPool" onclick="vytvorPole(4,4)">Create pool</button>
     
     <div class="gamePool">
 
@@ -32,9 +32,11 @@
 
         for (let i = 0; i < sirka; i++) {
             for (let j = 0; j < vyska; j++) {
-                gameBox.append("<button>lol</button>");
+                gamePool.append("<button class='box'>lol</button>");
             }
+            gamePool.append("<br>");
         }
+        $("#createPool").remove();
         }
     </script>
 </body>
