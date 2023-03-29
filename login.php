@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 id="header">Login or register</h1>
     <div id="login">
         <form action="index.php" method="post">
             <label for="email">Email:</label>
@@ -17,7 +18,7 @@
             <input type="submit" value="Login!">
         </form>
     </div>
-    
+
     <div id="register">
         <form action="index.php" method="post">
             <label for="email">Email:</label>
