@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <div class="gamePool">
         <button></button>
         <button></button>
         <button></button><br>
@@ -19,5 +19,8 @@
         <button></button>
         <button></button>
     </div>
+    <form action="login.php">
+        <button id="login">Login</button>
+    </form>
 </body>
 </html>
