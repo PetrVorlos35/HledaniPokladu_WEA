@@ -16,7 +16,7 @@
     <input type="number" name="sirka" id="sirka">
     <label for="vyska">Výška:</label>
     <input type="number" name="vyska" id="vyska">
-    <button id="createPool" onclick="vytvorPole(4,4)">Create pool</button>
+    <button id="createPool" onclick="vytvorPole()">Create pool</button>
     
     <div class="gamePool">
 
@@ -28,15 +28,23 @@
     <script>
         let gamePool = $(".gamePool");
 
-        function vytvorPole(sirka, vyska) {
-
-        for (let i = 0; i < sirka; i++) {
-            for (let j = 0; j < vyska; j++) {
-                gamePool.append("<button class='box'>lol</button>");
+        
+        function vytvorPole() {
+            
+            var sirka = $("#sirka").val();
+            var vyska = $("#vyska").val();
+            for (let i = 0; i < vyska; i++) {
+                for (let j = 0; j < sirka; j++) {
+                    gamePool.append("<button class='box' onclick='checkBox()'>X</button>");
+                }
+                gamePool.append("<br>");
             }
-            gamePool.append("<br>");
-        }
         $("#createPool").remove();
+        }
+
+
+        function checkBox() {
+            $(this).css("background-color", "red");
         }
     </script>
 </body>
