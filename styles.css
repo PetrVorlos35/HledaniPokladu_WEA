@@ -23,7 +23,7 @@
 }
 
 #login > form > label {
-    color: black;
+    color: white;
 }
 
 #register{
@@ -51,7 +51,7 @@
 }
 
 #register > form > label {
-    color: black;
+    color: white;
 }
 
 input[type="submit"]{
@@ -62,6 +62,20 @@ input[type="submit"]{
     padding: 0.5em;
     border-radius: 5px;
     margin-top: 1em;
+}
+button{
+    cursor: pointer;
+    background-color: aqua;
+    color: black;
+    border: none;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+button:hover{
+    background-color: rgb(0, 129, 129);
+
 }
 
 input[type="submit"]:hover{
@@ -75,4 +89,25 @@ input[type="submit"]:hover{
 input[type="number"]{
     display: block;
     background-color: rgb(40, 44, 52);
+    color: white;
+    border: none;
+}
+
+body{
+    background-color: rgb(40, 44, 52);
+    color: white;
+}
+
+.box{
+    background-color: black;
+    color: white;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    box-shadow: 0 0 10px #616161;
+    padding: 1px;
+}
+
+.box:hover{
+    background-color: #2e2e2e;
 }
