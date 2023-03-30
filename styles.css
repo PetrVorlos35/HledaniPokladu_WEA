@@ -128,3 +128,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+#createPool:disabled{
+    cursor: not-allowed;
+    background-color: rgb(107, 113, 125);
+}
