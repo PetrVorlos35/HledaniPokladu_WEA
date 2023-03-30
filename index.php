@@ -42,13 +42,36 @@
                 }
                 gamePool.append("<br>");
             }
+            rndNumber = rnd(1, id);
+            let poklad = $("#button-" + rndNumber);
+            poklad.css("outline", "2px solid white").css("outline-offset", "-2px");
+            poklad.prop("id", "poklad");
+
             $("#createPool").prop('disabled', true);
             gamePool.show();
         }
 
         function checkBox() {
+            if(this.id == "poklad") {
+                alert("You found the treasure!");
+                this.style.backgroundColor = "green";
+                id = 1;
+                // gamePool.hide();
+                $("#createPool").prop('disabled', false);
+                return;
+            }
+            else if(this.style.backgroundColor == "red")
+                alert("You already checked this box!");
+            else if(this.style.backgroundColor == "green")
+                alert("You already found the treasure!");
+
             this.style.backgroundColor = "red";
         }
+
+        function rnd(floor, ceiling) {
+            return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
+        }
+
     </script>
 </body>
 </html>
