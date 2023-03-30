@@ -29,11 +29,11 @@
 
     <script>
         let gamePool = $(".gamePool");
+        let id = 1;
 
         function vytvorPole() {
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
-            let id = 1;
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
