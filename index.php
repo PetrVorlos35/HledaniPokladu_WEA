@@ -42,7 +42,7 @@
                 }
                 gamePool.append("<br>");
             }
-            // $("#createPool").remove();
+            $("#createPool").prop('disabled', true);
             gamePool.show();
         }
 
