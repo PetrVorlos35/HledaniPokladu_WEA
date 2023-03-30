@@ -36,7 +36,7 @@
             let id = 1;
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
-                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox()'>X</button>");
+                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'>X</button>");
                     id++;
                 }
                 gamePool.append("<br>");
@@ -46,7 +46,7 @@
 
 
         function checkBox() {
-            $(this).css("background-color", "red");
+            this.style.backgroundColor = "red";
         }
     </script>
 </body>
