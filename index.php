@@ -26,7 +26,6 @@
 
         </div>
     </div>
-
     <script>
         let gamePool = $(".gamePool");
         let id = 1;
@@ -37,7 +36,7 @@
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
-                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'></button>");
+                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'><div class='texInButton'></div></button>");
                     id++;
                 }
                 gamePool.append("<br>");
@@ -50,6 +49,8 @@
             $("#createPool").prop('disabled', true);
             gamePool.show();
         }
+
+        
 
         function checkBox() {
             if(this.id == "poklad") {
@@ -65,6 +66,7 @@
             else if(this.style.backgroundColor == "green")
                 alert("You already found the treasure!");
 
+            $(this).children().text("X");
             this.style.backgroundColor = "red";
         }
 
