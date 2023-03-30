@@ -74,4 +74,5 @@ input[type="submit"]:hover{
 
 input[type="number"]{
     display: block;
+    background-color: rgb(40, 44, 52);
 }
