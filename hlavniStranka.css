@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  label, input {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .gamePool {
+    margin-top: 20px;
+    display: none;
+    width: 440px; /* (40px + 5px) * 10 + 5px */
+  }
+  
+  .box {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    background-color: #ccc;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+/* Styling tlačítek */
+button {
+    padding: 10px;
+    background-color: #336699;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Styling pro button Create pool */
+  #createPool {
+    margin-top: 20px;
+  }
+  
+  /* Styling pro gamePool */
+  .gamePool {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Styling pro jednotlivé tlačítka v gamePool */
+  .box {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Styling pro formulář Login */
+  form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Styling pro tlačítko Login */
+  #login {
+    padding: 10px;
+    background-color: #336699;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+    
