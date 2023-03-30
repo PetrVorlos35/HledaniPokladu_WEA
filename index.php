@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <label for="sirka">Šířka:</label>
+    <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
+    <label for="vyska">Výška:</label>
+    <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
+    <button id="createPool" onclick="vytvorPole()">Create pool</button>
+    
+    <form action="login.php">
+        <button id="login">Login</button>
+    </form>
     <div class="container">
-        <label for="sirka">Šířka:</label>
-        <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
-        <label for="vyska">Výška:</label>
-        <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
-        <button id="createPool" onclick="vytvorPole()">Create pool</button>
-        
         <div class="gamePool">
 
         </div>
-        <form action="login.php">
-            <button id="login">Login</button>
-        </form>
     </div>
 
     <script>
@@ -37,12 +37,12 @@
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
-                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'>X</button>");
+                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'></button>");
                     id++;
                 }
                 gamePool.append("<br>");
             }
-            $("#createPool").remove();
+            // $("#createPool").remove();
             gamePool.show();
         }
 
