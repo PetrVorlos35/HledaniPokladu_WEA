@@ -11,7 +11,7 @@
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body style="background-color: rgb(40, 44, 52); color:white">
+<body>
     <label for="sirka">Šířka:</label>
     <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
     <label for="vyska">Výška:</label>
