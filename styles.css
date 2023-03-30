@@ -112,8 +112,10 @@ body{
 }
 
 .box:hover{
-    border: 1px solid white;
+    /* border: 1px white solid; */
     background-color: black;
+    outline: 2px solid white;
+    outline-offset: -2px;
 }
 
 .container{
