@@ -112,7 +112,6 @@ body{
 }
 
 .box:hover{
-    /* border: 1px white solid; */
     background-color: black;
     outline: 2px solid white;
     outline-offset: -2px;
@@ -129,6 +128,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #6e6e6e
 }
 
 #createPool:disabled{
