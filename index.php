@@ -59,6 +59,8 @@
                 id = 1;
                 // gamePool.hide();
                 $("#createPool").prop('disabled', false);
+                $("#sirka").prop('disabled', false);
+                $("#vyska").prop('disabled', false);
                 return;
             }
             else if(this.style.backgroundColor == "red")
