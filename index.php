@@ -29,6 +29,7 @@
     <script>
         let gamePool = $(".gamePool");
         let id = 1;
+        let pokusy = 0;
 
         function vytvorPole() {
             var sirka = $("#sirka").val();
@@ -62,15 +63,24 @@
                 $(this).children().text("W");
                 // gamePool.hide();
                 $("#createPool").prop('disabled', false);
+                $(".box").prop('disabled', true);
+                pokusy = 0;
                 return;
             }
-            else if(this.style.backgroundColor == "red")
+            else if(this.style.backgroundColor == "red"){
                 alert("You already checked this box!");
-            else if(this.style.backgroundColor == "green")
+                return;
+            }
+            else if(this.style.backgroundColor == "green"){
                 alert("You already found the treasure!");
-
-            $(this).children().text("X");
+                return;
+            }
+            
+            $(this).children().text("L");
             this.style.backgroundColor = "red";
+            $("this").prop('disabled', true);
+            pokusy++;
+            console.log(pokusy);
         }
 
         function rnd(floor, ceiling) {
