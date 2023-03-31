@@ -34,6 +34,7 @@
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
             let velikostPole = sirka + "x" + vyska;
+            console.log(velikostPole);
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
