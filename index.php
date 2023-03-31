@@ -33,6 +33,7 @@
         function vytvorPole() {
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
+            let velikostPole = sirka + "x" + vyska;
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
@@ -59,8 +60,6 @@
                 id = 1;
                 // gamePool.hide();
                 $("#createPool").prop('disabled', false);
-                $("#sirka").prop('disabled', false);
-                $("#vyska").prop('disabled', false);
                 return;
             }
             else if(this.style.backgroundColor == "red")
