@@ -26,6 +26,7 @@
 
         </div>
     </div>
+    <div id="borderOfGamepool"></div>
     <script>
         let gamePool = $(".gamePool");
         let id = 1;
