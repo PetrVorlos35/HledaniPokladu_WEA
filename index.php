@@ -59,6 +59,7 @@
                 alert("You found the treasure!");
                 this.style.backgroundColor = "green";
                 id = 1;
+                $(this).children().text("W");
                 // gamePool.hide();
                 $("#createPool").prop('disabled', false);
                 return;
