@@ -1,5 +1,4 @@
 <?php
-
     $connect = new mysqli("localhost", "root","","poklad_wea") or die();
 
     // if($connect->connect_errno){
@@ -8,8 +7,6 @@
     // else{
     //     echo "Připojili jste se úšpěšně k DB";
     // }
-
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
