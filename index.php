@@ -71,7 +71,7 @@
 
         function checkBox() {
             if(this.id == "poklad") {
-                alert("You found the treasure!");
+                alert("You found the treasure! You had " + pokusy + " attempts.");
                 this.style.backgroundColor = "green";
                 id = 1;
                 $(this).children().text("W");
