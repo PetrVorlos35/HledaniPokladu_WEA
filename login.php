@@ -24,9 +24,9 @@
     <div id="login">
         <form action="login.php" method="post">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
             <input type="submit" value="Login!" name="login">
         </form>
     </div>
@@ -34,11 +34,11 @@
     <div id="register">
         <form action="login.php" method="post">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
             <label for="password2">Password again:</label>
-            <input type="password" name="password2" id="password2">
+            <input type="password" name="password2" id="password2" required>
             <input type="submit" value="Register!" name="register">
         </form>
     </div>
