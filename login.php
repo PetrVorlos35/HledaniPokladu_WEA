@@ -7,6 +7,8 @@
     // else{
     //     echo "Připojili jste se úšpěšně k DB";
     // }
+
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,25 +22,63 @@
 <body>
     <h1 id="header">Login or register</h1>
     <div id="login">
-        <form action="index.php" method="post">
+        <form action="login.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
             <label for="password">Password:</label>
             <input type="password" name="password" id="password">
-            <input type="submit" value="Login!">
+            <input type="submit" value="Login!" name="login">
         </form>
     </div>
 
     <div id="register">
-        <form action="index.php" method="post">
+        <form action="login.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
             <label for="password">Password:</label>
             <input type="password" name="password" id="password">
             <label for="password2">Password again:</label>
             <input type="password" name="password2" id="password2">
-            <input type="submit" value="Register!">
+            <input type="submit" value="Register!" name="register">
         </form>
     </div>
+
+    <?php
+        if (isset($_POST["login"])) {
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+
+            $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+            $result = $connect->query($sql);
+
+            if ($result->num_rows > 0) {
+                $_SESSION["isLogged"] = true;
+                $_SESSION["email"] = $email;
+                header("Location: index.php");
+                echo "Logged in!";
+            }else {
+                echo "Wrong email or password!";
+            }
+        }
+
+        if (isset($_POST["register"])) {
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $password2 = $_POST["password2"];
+
+            if ($password == $password2) {
+                $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+                // $result = $connect->query($sql);
+
+                if ($result = $connect->query($sql)) {
+                    echo "User registered!";
+                }else {
+                    echo "User not registered!";
+                }
+            }else {
+                echo "Passwords are not the same!";
+            }
+        }
+    ?>
 </body>
 </html>
