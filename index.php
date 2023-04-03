@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (isset($_SESSION["isLogged"])) {
+        $isLogged = $_SESSION["isLogged"];
+    }else {
+        $isLogged = false;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +20,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <?php
+        if($isLogged){
+            echo "Uživatel " . $_SESSION["email"] . " je přihlášen <br>";
+        }
+    ?>
     <label for="sirka">Šířka:</label>
     <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
     <label for="vyska">Výška:</label>
