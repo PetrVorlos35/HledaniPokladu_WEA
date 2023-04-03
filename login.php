@@ -62,7 +62,7 @@
                     echo "Wrong password!";
                 }
             }else {
-                echo "Wrong email or password!";
+                echo "User not found!";
             }
         }
 
