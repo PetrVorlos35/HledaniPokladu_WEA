@@ -48,14 +48,19 @@
             $email = $_POST["email"];
             $password = $_POST["password"];
 
-            $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+            $sql = "SELECT * FROM users WHERE email = '$email'";
             $result = $connect->query($sql);
 
             if ($result->num_rows > 0) {
-                $_SESSION["isLogged"] = true;
-                $_SESSION["email"] = $email;
-                header("Location: index.php");
-                echo "Logged in!";
+                $user = $result->fetch_object();
+                if(password_verify($password, $user->password)){
+                    $_SESSION["isLogged"] = true;
+                    $_SESSION["email"] = $email;
+                    header("Location: index.php");
+                    echo "Logged in!";
+                }else{
+                    echo "Wrong password!";
+                }
             }else {
                 echo "Wrong email or password!";
             }
@@ -67,7 +72,8 @@
             $password2 = $_POST["password2"];
 
             if ($password == $password2) {
-                $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+                $hashpassword = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashpassword')";
                 // $result = $connect->query($sql);
 
                 if ($result = $connect->query($sql)) {
