@@ -25,6 +25,7 @@
             echo "Uživatel " . $_SESSION["email"] . " je přihlášen <br>";
         }
     ?>
+    <p id="attempts"></p>
     <label for="sirka">Šířka:</label>
     <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
     <label for="vyska">Výška:</label>
@@ -45,7 +46,10 @@
         let id = 1;
         let pokusy = 0;
 
+        let attempts = $("#attempts");
+
         function vytvorPole() {
+            attempts.text("Attempts: " + pokusy);
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
             let velikostPole = sirka + "x" + vyska;
@@ -94,6 +98,7 @@
             this.style.backgroundColor = "red";
             $("this").prop('disabled', true);
             pokusy++;
+            attempts.text("Attempts: " + pokusy);
             console.log(pokusy);
         }
 
