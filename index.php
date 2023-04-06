@@ -32,9 +32,16 @@
     <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
     <button id="createPool" onclick="vytvorPole()">Create pool</button>
     
-    <form action="login.php">
-        <button id="login">Login</button>
-    </form>
+    <?php if ($isLogged): ?>
+        <form action="logout.php">
+            <button id="logout">Logout</button>
+        </form>
+    <?php else: ?>
+        <form action="login.php">
+            <button id="login">Login</button>
+        </form>
+    <?php endif; ?>
+    
     <div class="container">
         <div class="gamePool">
 
