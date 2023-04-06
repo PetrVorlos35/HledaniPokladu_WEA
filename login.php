@@ -43,6 +43,10 @@
         </form>
     </div>
 
+    <form action="index.php">
+        <button>Continue without logging in</button>
+    </form>
+
     <?php
         if (isset($_POST["login"])) {
             $email = $_POST["email"];
