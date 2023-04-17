@@ -5,6 +5,8 @@
     }else {
         $isLogged = false;
     }
+
+    $connect = new mysqli("localhost", "root","","poklad_wea") or die();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +54,7 @@
         let gamePool = $(".gamePool");
         let id = 1;
         let pokusy = 0;
+        let velikostPole = "";
 
         let attempts = $("#attempts");
 
@@ -59,7 +62,7 @@
             attempts.text("Attempts: " + pokusy);
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
-            let velikostPole = sirka + "x" + vyska;
+            velikostPole = sirka + "x" + vyska;
             console.log(velikostPole);
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
@@ -78,17 +81,46 @@
             gamePool.show();
         }
 
-        
+        function saveStats(){
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'index.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            var data = 'velikostPole=' + encodeURIComponent(velikostPole) + '&pokusy=' + encodeURIComponent(pokusy);
+            xhr.send(data);
+
+            <?php
+                header("Cache-Control: no-cache, must-revalidate"); 
+
+                if(isset($_POST['velikostPole']) && isset($_POST['pokusy'])){
+                    $velikostPole = $_POST['velikostPole'] ?? '';
+                    $pokusy = $_POST['pokusy'] ?? '';
+
+                    if($isLogged){
+                        $sql = "INSERT INTO stats (user_id, game_size, moves_count) VALUES ( (SELECT id FROM users WHERE email = '" . $_SESSION["email"] . "'), '" . $velikostPole . "', '" . $pokusy . "' )";
+                        if ($result = $connect->query($sql)) {
+                            echo "Stats saved!";
+                        }else {
+                            echo "error!";
+                        }
+                    }
+                }
+
+            ?>
+        }
 
         function checkBox() {
             if(this.id == "poklad") {
-                alert("You found the treasure! You had " + pokusy + " attempts.");
+                // alert("You found the treasure! You had " + pokusy + " attempts.");
                 this.style.backgroundColor = "green";
                 id = 1;
-                $(this).children().text("W");
+                // $(this).children().text("W");
                 // gamePool.hide();
                 $("#createPool").prop('disabled', false);
                 $(".box").prop('disabled', true);
+                pokusy++;
+                attempts.text("Attempts: " + pokusy);
+                saveStats();
                 pokusy = 0;
                 return;
             }
@@ -96,17 +128,13 @@
                 alert("You already checked this box!");
                 return;
             }
-            else if(this.style.backgroundColor == "green"){
-                alert("You already found the treasure!");
-                return;
-            }
             
-            $(this).children().text("L");
+            // $(this).children().text("L");
             this.style.backgroundColor = "red";
             $("this").prop('disabled', true);
             pokusy++;
             attempts.text("Attempts: " + pokusy);
-            console.log(pokusy);
+            // console.log(pokusy);
         }
 
         function rnd(floor, ceiling) {
