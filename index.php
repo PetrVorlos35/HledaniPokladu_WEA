@@ -81,32 +81,46 @@
             gamePool.show();
         }
 
-        function saveStats(){
+        // function saveStats(){
             
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'index.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            var data = 'velikostPole=' + encodeURIComponent(velikostPole) + '&pokusy=' + encodeURIComponent(pokusy);
-            xhr.send(data);
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open('POST', 'index.php', true);
+        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //     var data = 'velikostPole=' + encodeURIComponent(velikostPole) + '&pokusy=' + encodeURIComponent(pokusy);
+        //     xhr.send(data);
 
-            <?php
-                header("Cache-Control: no-cache, must-revalidate"); 
+        //     <?php
+        //         header("Cache-Control: no-cache, must-revalidate"); 
 
-                if(isset($_POST['velikostPole']) && isset($_POST['pokusy'])){
-                    $velikostPole = $_POST['velikostPole'] ?? '';
-                    $pokusy = $_POST['pokusy'] ?? '';
+        //         if(isset($_POST['velikostPole']) && isset($_POST['pokusy'])){
+        //             $velikostPole = $_POST['velikostPole'] ?? '';
+        //             $pokusy = $_POST['pokusy'] ?? '';
 
-                    if($isLogged){
-                        $sql = "INSERT INTO stats (user_id, game_size, moves_count) VALUES ( (SELECT id FROM users WHERE email = '" . $_SESSION["email"] . "'), '" . $velikostPole . "', '" . $pokusy . "' )";
-                        if ($result = $connect->query($sql)) {
-                            echo "Stats saved!";
-                        }else {
-                            echo "error!";
-                        }
-                    }
+        //             if($isLogged){
+        //                 $sql = "INSERT INTO stats (user_id, game_size, moves_count) VALUES ( (SELECT id FROM users WHERE email = '" . $_SESSION["email"] . "'), '" . $velikostPole . "', '" . $pokusy . "' )";
+        //                 if ($result = $connect->query($sql)) {
+        //                     echo "Stats saved!";
+        //                 }else {
+        //                     echo "error!";
+        //                 }
+        //             }
+        //         }
+
+        //     ?>
+        // }
+
+        function saveStats(){
+            $.ajax({
+                type: "POST",
+                url: "stats.php",
+                data: {
+                    velikostPole: velikostPole,
+                    pokusy: pokusy
+                },
+                success: function(data){
+                    console.log(data);
                 }
-
-            ?>
+            });
         }
 
         function checkBox() {
