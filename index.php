@@ -43,6 +43,10 @@
             <button id="login">Login</button>
         </form>
     <?php endif; ?>
+
+    <form action="stats.php">
+        <button id="stats">Stats</button>
+    </form>
     
     <div class="container">
         <div class="gamePool">
@@ -112,7 +116,7 @@
         function saveStats(){
             $.ajax({
                 type: "POST",
-                url: "stats.php",
+                url: "saveStats.php",
                 data: {
                     velikostPole: velikostPole,
                     pokusy: pokusy
