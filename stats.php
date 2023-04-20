@@ -1,24 +1,9 @@
 <?php
     session_start();
-    $connect = new mysqli("localhost", "root","","poklad_wea") or die();
-
-    $email = $_SESSION["email"];
-    $get_id = "SELECT * FROM users WHERE email = '$email'";
-    $result = $connect->query($get_id);
-    $row = mysqli_fetch_assoc($result);
-    $user_id = $row["id"];
-    $game_size = $_POST["velikostPole"];
-    $moves_count = $_POST["pokusy"];
-    $id = $connect->query("SELECT MAX(id) FROM stats")->fetch_row()[0] + 1;
-
-    $sql = "INSERT INTO stats VALUES ('$id', '$user_id', '$game_size', '$moves_count')";
-    if ($result = $connect->query($sql)) {
-        echo "Stats saved!";
-    }else {
-        echo "error!";
+    $connect = mysqli_connect("localhost", "root", "", "poklad_wea");
+    if (!$connect) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-
-    mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +12,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <?php
+        $email = $_SESSION["email"];
+        $best_moves = $connect->query("SELECT MIN(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+        $worst_moves = $connect->query("SELECT Max(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+        $avg_moves = $connect->query("SELECT ROUND(AVG(stats.moves_count), 1) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+
+        echo "<p>Best moves: " . $best_moves->fetch_row()[0] . "</p>";
+        echo "<p>Worst moves: " . $worst_moves->fetch_row()[0] . "</p>";
+        echo "<p>Average moves: " . $avg_moves->fetch_row()[0] . "</p>";
+
+        mysqli_close($connect);
+    ?>
+    <form action="index.php">
+        <button>Back</button>
+    </form>
 </body>
 </html>
