@@ -72,7 +72,7 @@
 <?php
         }
         else{
-            echo "You are not logged in!";
+            echo "<h1>You are not logged in!</h1>";
         }
         mysqli_close($connect);
     ?>
