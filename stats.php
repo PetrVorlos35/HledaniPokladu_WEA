@@ -16,17 +16,70 @@
 </head>
 <body>
     <?php
-        $email = $_SESSION["email"];
-        $best_moves = $connect->query("SELECT MIN(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
-        $worst_moves = $connect->query("SELECT Max(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
-        $avg_moves = $connect->query("SELECT ROUND(AVG(stats.moves_count), 1) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+        if(isset($_SESSION["email"])){
+            $email = $_SESSION["email"];
+            echo "<p>User: " . $email . "</p>";
+    ?>
+    <table>
+        <tr>
+            <th colspan="2" style="text-align: center;">Stats</th>
+        </tr>
+        <tr>
+    <?php
+            $get_id = "SELECT * FROM users WHERE email = '$email'";
+            $result = mysqli_query($connect, $get_id);
+            $row = mysqli_fetch_assoc($result);
+            $user_id = $row["id"];
+            $sql = "SELECT * FROM stats WHERE user_id = '$user_id'";
+            $result = mysqli_query($connect, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                echo "<th>Game size</th>";
+                echo "<th>Moves count</th>";
+                echo "</tr>";
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row["game_size"] . "</td>";
+                    echo "<td>" . $row["moves_count"] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "0 results";
+            }
 
-        echo "<p>Best moves: " . $best_moves->fetch_row()[0] . "</p>";
-        echo "<p>Worst moves: " . $worst_moves->fetch_row()[0] . "</p>";
-        echo "<p>Average moves: " . $avg_moves->fetch_row()[0] . "</p>";
+            
+            $email = $_SESSION["email"];
+            $best_moves = $connect->query("SELECT MIN(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+            $worst_moves = $connect->query("SELECT MAX(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
+            $worst_moves_select = "SELECT MAX(stats.moves_count) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'";
+            $avg_moves = $connect->query("SELECT ROUND(AVG(stats.moves_count), 1) FROM stats JOIN users ON stats.user_id = users.id WHERE users.email = '$email'");
 
+?>
+        <table>
+        <tr>
+            <th>Statistic</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Best moves</td>
+            <td><?php echo $best_moves->fetch_row()[0]; ?></td>
+        </tr>
+        <tr>
+            <td>Worst moves</td>
+            <td><?php echo $worst_moves->fetch_row()[0]; ?></td>
+        </tr>
+        <tr>
+            <td>Average moves</td>
+            <td><?php echo $avg_moves->fetch_row()[0]; ?></td>
+        </tr>
+        </table>
+<?php
+        }
+        else{
+            echo "You are not logged in!";
+        }
         mysqli_close($connect);
     ?>
+    </table>
     <form action="index.php">
         <button>Back</button>
     </form>
