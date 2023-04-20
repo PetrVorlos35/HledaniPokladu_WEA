@@ -1,9 +1,6 @@
 <?php
     session_start();
     $connect = mysqli_connect("localhost", "root", "", "poklad_wea") or die();
-    if (!$connect) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
