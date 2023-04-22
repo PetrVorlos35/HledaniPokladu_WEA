@@ -59,6 +59,8 @@
         let id = 1;
         let pokusy = 0;
         let velikostPole = "";
+        let pokladX = 0;
+        let pokladY = 0;
 
         let attempts = $("#attempts");
 
@@ -71,18 +73,45 @@
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
-                    gamePool.append("<button id='button-" + id + "' class='box' onclick='checkBox.call(this)'><div class='texInButton'></div></button>");
+                    gamePool.append("<button id='button-" + id + "' class='box' x='" + i + "' y='" + j + "' onclick='checkBox.call(this);showPosition(this)'><div class='texInButton'></div></button>");
                     id++;
                 }
                 gamePool.append("<br>");
             }
             rndNumber = rnd(1, id);
             let poklad = $("#button-" + rndNumber);
+            pokladX = poklad.attr("x");
+            pokladY = poklad.attr("y");
+            console.log(pokladX + " " + pokladY);
             poklad.css("outline", "2px solid white").css("outline-offset", "-2px");
             poklad.prop("id", "poklad");
 
             $("#createPool").prop('disabled', true);
             gamePool.show();
+        }
+        function showPosition(button) {
+            let x = $(button).attr("x");
+            let y = $(button).attr("y");
+            console.log(x + " " + y);
+
+            if (x == pokladX && y == pokladY) {
+                // alert("You found the treasure! You had " + pokusy + " attempts.");
+                // saveStats();
+                // gamePool.hide();
+                // $("#createPool").prop('disabled', false);
+            } else {
+                if (x > pokladX) {
+                    $(button).children().text("S");
+                } else if (x < pokladX) {
+                    $(button).children().text("J");
+                } else if (y > pokladY) {
+                    $(button).children().text("Z");
+                } else if (y < pokladY) {
+                    $(button).children().text("V");
+                }
+                // pokusy++;
+                // attempts.text("Attempts: " + pokusy);
+            }
         }
 
         // function saveStats(){
@@ -112,21 +141,6 @@
 
         //     ?>
         // }
-
-        function saveStats(){
-            $.ajax({
-                type: "POST",
-                url: "saveStats.php",
-                data: {
-                    velikostPole: velikostPole,
-                    pokusy: pokusy
-                },
-                success: function(data){
-                    console.log(data);
-                }
-            });
-        }
-
         function checkBox() {
             if(this.id == "poklad") {
                 // alert("You found the treasure! You had " + pokusy + " attempts.");
@@ -154,6 +168,21 @@
             attempts.text("Attempts: " + pokusy);
             // console.log(pokusy);
         }
+
+        function saveStats(){
+            $.ajax({
+                type: "POST",
+                url: "saveStats.php",
+                data: {
+                    velikostPole: velikostPole,
+                    pokusy: pokusy
+                },
+                success: function(data){
+                    console.log(data);
+                }
+            });
+        }
+
 
         function rnd(floor, ceiling) {
             return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
