@@ -103,9 +103,9 @@
                 if(y > pokladY && x > pokladX) {
                     $(button).children().text("SZ");
                 } else if(y > pokladY && x < pokladX) {
-                    $(button).children().text("SV");
-                } else if(y < pokladY && x > pokladX) {
                     $(button).children().text("JZ");
+                } else if(y < pokladY && x > pokladX) {
+                    $(button).children().text("SV");
                 } else if(y < pokladY && x < pokladX) {
                     $(button).children().text("JV");
                 } else if (x < pokladX) {
