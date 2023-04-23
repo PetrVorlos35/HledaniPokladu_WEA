@@ -1,0 +1,62 @@
+body{
+    background-color: rgb(40, 44, 52);
+    color: white;
+}
+.form{
+    background-color: black;
+    padding: 1em;
+    margin: 1em;
+    width: 15%;
+    margin: auto;
+    margin-bottom: 5em;
+    border-radius: 5px;
+}
+.form > form > input{
+    display: block;
+    margin: 5px auto;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    width: 75%;
+}
+.form > form > label{
+    display: block;
+    text-align: center;
+}
+.form > h2{
+    text-align: center;
+}
+.form > form > input[type="submit"]{
+    border: none;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+    cursor: pointer;
+}
+.form > form > input[type="submit"]:hover{
+    background-color: black;
+    color: white;
+}
+form > button{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0.5em;
+    border-radius: 5px; 
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+#noLogin{
+    background-color: none;
+    padding: 1em;
+    margin: 1em;
+    width: fit-content;
+    margin: auto;
+}
+h1{
+    text-align: center;
+    margin-bottom: 2em;
+}
