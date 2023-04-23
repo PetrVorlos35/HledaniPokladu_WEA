@@ -19,7 +19,7 @@
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
     <?php
@@ -27,12 +27,14 @@
             echo "Uživatel " . $_SESSION["email"] . " je přihlášen <br>";
         }
     ?>
-    <p id="attempts"></p>
-    <label for="sirka">Šířka:</label>
-    <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
-    <label for="vyska">Výška:</label>
-    <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
-    <button id="createPool" onclick="vytvorPole()">Create pool</button>
+    <div id="inputsForGame">
+        <p id="attempts"></p>
+        <label for="sirka">Šířka:</label>
+        <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
+        <label for="vyska">Výška:</label>
+        <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
+        <button id="createPool" onclick="vytvorPole()">Create pool</button>
+    </div>
     
     <?php if ($isLogged): ?>
         <form action="logout.php">
@@ -53,7 +55,6 @@
 
         </div>
     </div>
-    <div id="borderOfGamepool"></div>
     <script>
         let gamePool = $(".gamePool");
         let id = 1;
