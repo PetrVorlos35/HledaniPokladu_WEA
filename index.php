@@ -83,7 +83,7 @@
             pokladX = poklad.attr("x");
             pokladY = poklad.attr("y");
             console.log(pokladX + " " + pokladY);
-            poklad.css("outline", "2px solid white").css("outline-offset", "-2px");
+            // poklad.css("outline", "2px solid white").css("outline-offset", "-2px");
             poklad.prop("id", "poklad");
 
             $("#createPool").prop('disabled', true);
