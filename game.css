@@ -1,0 +1,82 @@
+
+body{
+    background-color: rgb(40, 44, 52);
+    color: white;
+}
+
+.box{
+    background-color: black;
+    color: white;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 1.5em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0;
+    position: relative;
+    border: none;
+}
+
+.box:hover{
+    background-color: black;
+    outline: 2px solid white;
+    outline-offset: -2px;
+}
+
+.box:disabled{
+    cursor: not-allowed;
+    outline: none;
+    outline-offset: none;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #6e6e6e;
+    z-index: 10;
+}
+
+#createPool:disabled{
+    cursor: not-allowed;
+    background-color: rgb(107, 113, 125);
+}
+
+.texInButton{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#inputsForGame{
+    background-color: black;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 5px;
+}
+#inputsForGame > input{
+    display: block;
+    padding: 5px;
+}
+#inputsForGame > button{
+    display: block;
+    padding: 0.5em;
+    margin-top: 5px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#inputsForGame > button:hover{
+    background-color: black;
+    color: white;
+}
