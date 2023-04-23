@@ -17,11 +17,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přihlášení</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <h1 id="header">Login or register</h1>
-    <div id="login">
+    <div class="form">
+        <h2>Login</h2>
         <form action="login.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
@@ -31,7 +32,8 @@
         </form>
     </div>
 
-    <div id="register">
+    <div class="form">
+        <h2>Register</h2>
         <form action="login.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
@@ -43,9 +45,11 @@
         </form>
     </div>
 
-    <form action="index.php">
-        <button>Continue without logging in</button>
-    </form>
+    <div id="noLogin">
+        <form action="index.php">
+            <button>Continue without logging in</button>
+        </form>
+    </div>
 
     <?php
         if (isset($_POST["login"])) {
