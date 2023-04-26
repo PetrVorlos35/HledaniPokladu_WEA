@@ -9,6 +9,7 @@ table {
     border-collapse: collapse;
     width: 15%;
     border: 1px solid #000000;
+    margin: auto;
 }
 
 th,
@@ -30,10 +31,15 @@ button{
     border: none;
     background-color: white;
     border-radius: 5px;
+    margin: auto;
     cursor: pointer;
 }
 
 button:hover{
     background-color: black;
     color: white;
+}
+
+h1{
+    text-align: center;
 }

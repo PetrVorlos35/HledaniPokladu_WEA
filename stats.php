@@ -17,6 +17,7 @@
             $email = $_SESSION["email"];
             echo "<h3>User: <span style='font-weight: normal'>" . $email . "</span></h3>";
     ?>
+    <h1>Statistics</h1>
     <table>
         <tr>
             <th colspan="2" style="text-align: center;">Stats</th>

@@ -24,9 +24,11 @@
 <body>
     <?php
         if($isLogged){
-            echo "<h3>Uživatel <span style='font-weight: normal'>" . $_SESSION["email"] . "</span> je přihlášen </h3> <br>";
+            $email = $_SESSION["email"];
+            echo "<h3>User: <span style='font-weight: normal'>" . $email . "</span></h3>";
         }
     ?>
+    <h1>Hledání pokladu</h1>
     <div id="inputsForGame">
         <p id="attempts"></p>
         <label for="sirka">Šířka:</label>
