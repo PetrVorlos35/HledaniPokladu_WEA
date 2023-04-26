@@ -46,7 +46,7 @@
         </form>
     <?php else: ?>
         <form action="login.php">
-            <button class="login" class="loginRegister">Login</button>
+            <button id="login" class="loginRegister">Login</button>
         </form>
     <?php endif; ?>
 
