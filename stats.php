@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stats.css">
 </head>
 <body>
     <?php
         if(isset($_SESSION["email"])){
             $email = $_SESSION["email"];
-            echo "<p>User: " . $email . "</p>";
+            echo "<h3>User: <span style='font-weight: normal'>" . $email . "</span></h3>";
     ?>
     <table>
         <tr>

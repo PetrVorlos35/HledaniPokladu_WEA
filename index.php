@@ -33,7 +33,7 @@
         <input type="number" name="sirka" id="sirka" min="4" max="20" value="10">
         <label for="vyska">Výška:</label>
         <input type="number" name="vyska" id="vyska" min="4" max="20" value="10">
-        <button id="createPool" onclick="vytvorPole()">Create pool</button>
+        <button id="createPool" onclick="vytvorPole()">Create pool</button> 
     </div>
     
     <form action="stats.php">

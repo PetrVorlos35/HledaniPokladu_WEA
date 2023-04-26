@@ -1,0 +1,38 @@
+
+body{
+    background-color: rgb(40, 44, 52);
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 15%;
+    border: 1px solid #000000;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #000000;
+}
+
+th {
+    background-color: white;
+    color: black;
+}
+
+button{
+    display: block;
+    padding: 0.5em;
+    margin-top: 5px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
