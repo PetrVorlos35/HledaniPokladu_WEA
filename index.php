@@ -36,19 +36,20 @@
         <button id="createPool" onclick="vytvorPole()">Create pool</button>
     </div>
     
+    <form action="stats.php">
+        <button class="loginRegister" id="stats">Stats</button>
+    </form>
+    
     <?php if ($isLogged): ?>
         <form action="logout.php">
-            <button id="logout">Logout</button>
+            <button class="logout" class="loginRegister">Logout</button>
         </form>
     <?php else: ?>
         <form action="login.php">
-            <button id="login">Login</button>
+            <button class="login" class="loginRegister">Login</button>
         </form>
     <?php endif; ?>
 
-    <form action="stats.php">
-        <button id="stats">Stats</button>
-    </form>
     
     <div class="container">
         <div class="gamePool">

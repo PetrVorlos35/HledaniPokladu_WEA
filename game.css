@@ -80,3 +80,18 @@ body{
     background-color: black;
     color: white;
 }
+
+.loginRegister{
+    display: block;
+    padding: 0.5em;
+    margin-top: 5px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loginRegister:hover{
+    background-color: black;
+    color: white;
+}
