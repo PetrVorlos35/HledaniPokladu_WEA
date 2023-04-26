@@ -24,7 +24,7 @@
 <body>
     <?php
         if($isLogged){
-            echo "Uživatel " . $_SESSION["email"] . " je přihlášen <br>";
+            echo "<h3>Uživatel <span style='font-weight: normal'>" . $_SESSION["email"] . "</span> je přihlášen </h3> <br>";
         }
     ?>
     <div id="inputsForGame">
