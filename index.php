@@ -39,10 +39,10 @@
     <form action="stats.php">
         <button class="loginRegister" id="stats">Stats</button>
     </form>
-    
+
     <?php if ($isLogged): ?>
         <form action="logout.php">
-            <button class="logout" class="loginRegister">Logout</button>
+            <button id="logout" class="loginRegister">Logout</button>
         </form>
     <?php else: ?>
         <form action="login.php">

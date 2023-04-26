@@ -62,6 +62,7 @@ body{
     width: fit-content;
     padding: 15px;
     border-radius: 5px;
+    margin: 15px;
 }
 #inputsForGame > input{
     display: block;
