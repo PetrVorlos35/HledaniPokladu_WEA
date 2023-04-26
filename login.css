@@ -1,6 +1,7 @@
 body{
     background-color: rgb(40, 44, 52);
     color: white;
+    padding: 15px;
 }
 .form{
     background-color: black;
