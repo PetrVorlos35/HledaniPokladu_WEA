@@ -70,7 +70,7 @@
             var sirka = $("#sirka").val();
             var vyska = $("#vyska").val();
             velikostPole = sirka + "x" + vyska;
-            console.log(velikostPole);
+            // console.log(velikostPole);
             gamePool.empty();
             for (let i = 0; i < vyska; i++) {
                 for (let j = 0; j < sirka; j++) {
@@ -83,8 +83,6 @@
             let poklad = $("#button-" + rndNumber);
             pokladX = poklad.attr("x");
             pokladY = poklad.attr("y");
-            console.log(pokladX + " " + pokladY);
-            // poklad.css("outline", "2px solid white").css("outline-offset", "-2px");
             poklad.prop("id", "poklad");
 
             $("#createPool").prop('disabled', true);
@@ -93,7 +91,6 @@
         function showPosition(button) {
             let x = $(button).attr("x");
             let y = $(button).attr("y");
-            console.log(x + " " + y);
 
             if (x == pokladX && y == pokladY) {
                 // alert("You found the treasure! You had " + pokusy + " attempts.");
@@ -175,7 +172,6 @@
             $("this").prop('disabled', true);
             pokusy++;
             attempts.text("Attempts: " + pokusy);
-            // console.log(pokusy);
         }
 
         function saveStats(){
