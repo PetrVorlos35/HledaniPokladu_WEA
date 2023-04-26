@@ -149,6 +149,7 @@
         //     ?>
         // }
         function checkBox() {
+            $('#alreadyChecked').text("");
             if(this.id == "poklad") {
                 // alert("You found the treasure! You had " + pokusy + " attempts.");
                 this.style.backgroundColor = "green";
@@ -164,7 +165,7 @@
                 return;
             }
             else if(this.style.backgroundColor == "red"){
-                alert("You already checked this box!");
+                $('#alreadyChecked').text("You already checked this field!");
                 return;
             }
             
@@ -195,5 +196,6 @@
         }
 
     </script>
+    <span id="alreadyChecked" style="color:red"></span>
 </body>
 </html>
